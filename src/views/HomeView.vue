@@ -1,18 +1,56 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <m-table
+      ref="mtable"
+      :value.sync="pager"
+      :columns="colunms"
+      columnAlign="right"
+      :stripe="true"
+      tooltip-effect="light"
+      :data="tableData"
+      :total="120"
+      @cell-click="cellClick"
+      @sort-change="sortChagne"
+      @size-change="handleSizeChange"
+    >
+      <template #name="row">
+        <p>{{ row }}</p>
+      </template>
+    </m-table>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import MTable from '@/components/table'
+// import MTable from "./Table.vue";
+import { colunms, tableData } from './schema/tableColumn'
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
-  }
+    'm-table': MTable,
+  },
+
+  data() {
+    return {
+      colunms,
+      tableData,
+      pager: {},
+    }
+  },
+
+  methods: {
+    cellClick(row) {
+      console.log(row)
+    },
+    sortChagne(arg) {
+      console.log(arg)
+    },
+    handleSizeChange(val) {
+      this.$refs.mtable.setPageSize(val)
+      console.log(val)
+    },
+  },
 }
 </script>
+
+<style scoped></style>
