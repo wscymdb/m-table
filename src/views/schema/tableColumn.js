@@ -39,6 +39,11 @@ export const colunms = [
     prop: 'slogan',
     // width: '120px',
   },
+  {
+    label: '操作',
+    prop: 'config',
+    // width: '120px',
+  },
 ]
 
 export const tableData = [
@@ -54,5 +59,52 @@ export const tableData = [
     age: 12,
     address: '河南省',
     slogan: '哎呦 你干嘛 ',
+  },
+]
+
+export const tableColJson = [
+  {
+    label: '序号',
+    type: 'selection',
+  },
+  {
+    label: '序号',
+    type: 'index',
+    elProps: {
+      width: '50',
+    },
+  },
+  {
+    label: '文章名称',
+    prop: 'a',
+    render: 'textLink',
+  },
+  {
+    label: '文章地址',
+    prop: 'b',
+    render: 'textTag',
+    colorType: 'primary',
+  },
+  {
+    label: '公众号',
+    prop: 'c',
+    elProps: {
+      width: '160px',
+    },
+    render: 'textFormat',
+  },
+  {
+    label: '发布时间',
+    prop: 'd',
+    render: 'textLight',
+    colorType: 'danger',
+  },
+  {
+    label: '发布时间',
+    prop: 'e',
+  },
+  {
+    label: '操作',
+    prop: 'config',
   },
 ]

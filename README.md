@@ -20,6 +20,7 @@ element ui：2.15.11
 
 | 参数        | 说明                                     | 类型   | 默认值 | 可选值                    |
 | ----------- | ---------------------------------------- | ------ | ------ | ------------------------- |
+| columns     | 表格列名称                               | Array  | any[]  | -                         |
 | columnAlign | 表格的对齐方式                           | sting  | "left" | "left"、"right"、"center" |
 | value.sync  | 当页数、页码发生变化，会自动获取变化的值 | Object | {}     | -                         |
 
@@ -127,4 +128,68 @@ export const colunms = [
     </template>
   </m-table>
 </div>
+```
+
+# 使用 json 形式驱动
+
+使用这种方式进行渲染，需要在页面进行一部操作 详情看示例代码，jsonView.vue 文件
+
+render 类型 后续有别的需求自己添加即可，
+
+| 参数    | 说明                             | 是否必填 | 可选值                                         |
+| ------- | -------------------------------- | -------- | ---------------------------------------------- |
+| label   | 表格标题                         | 是       | -                                              |
+| prop    | 表格标题对应的字段               | 是       | -                                              |
+| render  | 表格列的类型                     | 否       | textLink \| textTag \| textLight \| textFormat |
+| type    | 表格列的类型（element 自带类型） | 否       | selection \| index                             |
+| elProps | 表格列属性                       | 否       | 同官网                                         |
+|         |                                  |          |                                                |
+
+```javascript
+export const tableCol = [
+  {
+    label: '序号',
+    type: 'selection',
+  },
+  {
+    label: '序号',
+    type: 'index',
+    elProps: {
+      width: '50',
+    },
+  },
+  {
+    label: '文章名称',
+    prop: 'a',
+    render: 'textLink',
+  },
+  {
+    label: '文章地址',
+    prop: 'b',
+    render: 'textTag',
+    colorType: 'primary',
+  },
+  {
+    label: '公众号',
+    prop: 'c',
+    elProps: {
+      width: '160px',
+    },
+    render: 'textFormat',
+  },
+  {
+    label: '发布时间',
+    prop: 'd',
+    render: 'textLight',
+    colorType: 'danger',
+  },
+  {
+    label: '发布时间',
+    prop: 'e',
+  },
+  {
+    label: '操作',
+    prop: 'config',
+  },
+]
 ```

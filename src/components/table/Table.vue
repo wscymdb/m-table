@@ -55,6 +55,8 @@ export default {
                     rowIdx: props.$index, // 行序号
                     // 上面三个属性 是element官网插槽给的
                     colIdx: idx, // 列序号
+                    val: props.row[column.prop],
+                    props: column,
                   }
 
                   return column.render
@@ -65,7 +67,6 @@ export default {
             : {},
       })
     })
-
     const table = h(
       'el-table',
       {

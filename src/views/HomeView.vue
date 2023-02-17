@@ -16,6 +16,10 @@
       <template #name="row">
         <p>{{ row }}</p>
       </template>
+      <template #config>
+        <el-button size="mini" type="primary">你干嘛</el-button>
+        <el-button size="mini" type="success">及你太美</el-button>
+      </template>
     </m-table>
   </div>
 </template>
